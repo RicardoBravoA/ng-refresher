@@ -10,14 +10,17 @@ import { PersonService } from "./person.service";
 export class PersonComponent implements OnInit, OnDestroy {
   personList: string[] = [];
   private personListSubscribe!: Subscription;
+  isFetching  = false;
 
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
-    this.personService.fetchPersons();
     this.personListSubscribe = this.personService.personsChanged.subscribe(persons => {
       this.personList = persons;
+      this.isFetching = false;
     });
+    this.isFetching = true;
+    this.personService.fetchPersons();
   }
 
   onRemovePerson(name: string) {
