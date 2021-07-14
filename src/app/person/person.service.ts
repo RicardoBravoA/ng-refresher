@@ -8,4 +8,11 @@ export class PersonService {
     this.persons.push(name)
     console.log(this.persons)
   }
+
+  removePerson(name: String) {
+    this.persons = this.persons.filter(person => {
+      return person !== name;
+    });
+    console.log(this.persons)
+  }
 }

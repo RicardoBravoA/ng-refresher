@@ -17,4 +17,8 @@ export class PersonComponent implements OnInit {
     this.personList = this.personService.persons
   }
 
+  onRemovePerson(name: String) {
+    this.personService.removePerson(name)
+  }
+
 }
