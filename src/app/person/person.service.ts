@@ -6,5 +6,6 @@ export class PersonService {
 
   onPersonCreated(name: string) {
     this.persons.push(name)
+    console.log(this.persons)
   }
 }
